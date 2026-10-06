@@ -1,0 +1,350 @@
+/* ==========================================================================
+   Personal Portfolio - Pudi Venkatesh
+   Pure CSS3 responsive layout (no frameworks, no JavaScript)
+   Colors/typography taken from the design reference image.
+   ========================================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    background: #ffffff;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    line-height: 1.6;
+}
+
+/* ---- Responsive centered container -------------------------------------- */
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ---- Full-width navigation bar ------------------------------------------- */
+
+.navbar {
+    background: #1f4164;
+    width: 100%;
+}
+
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 52px;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.brand {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+
+.nav-links a {
+    color: #d6dfe8;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* ---- Full-width hero section ---------------------------------------------- */
+
+.hero {
+    background: #32638f;
+    width: 100%;
+    padding: 64px 0 60px;
+    text-align: center;
+}
+
+.hero h1 {
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.tagline {
+    color: #d9e5f0;
+    font-size: 15px;
+    margin-top: 10px;
+}
+
+/* ---- Main content sections ------------------------------------------------- */
+
+main.container {
+    padding-top: 34px;
+    padding-bottom: 34px;
+}
+
+.section {
+    margin-bottom: 36px;
+}
+
+.section h2 {
+    color: #1f4164;
+    font-size: 22px;
+    font-weight: bold;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #b7c4d1;
+    margin-bottom: 14px;
+    display: inline-block;
+    min-width: 60%;
+}
+
+/* About */
+.about-text {
+    font-size: 15px;
+    color: #4a4a4a;
+    max-width: 760px;
+}
+
+/* Skills */
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.badge {
+    background: #32638f;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 5px 14px;
+    border-radius: 999px;
+}
+
+/* Projects - 2 columns by default, 4 on wide desktops, 1 on phones */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+@media (min-width: 1100px) {
+    .projects-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #e4e6e8;
+    border-radius: 8px;
+    padding: 16px 18px;
+    box-shadow: 0 1px 3px rgba(31, 65, 100, 0.08);
+}
+
+.card h3 {
+    color: #2b2b2b;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.card p {
+    color: #6d6d6d;
+    font-size: 13.5px;
+}
+
+/* Contact */
+.contact-text {
+    font-size: 15px;
+    color: #4a4a4a;
+}
+
+.email-link {
+    color: #32638f;
+    text-decoration: none;
+}
+
+.email-link:hover {
+    text-decoration: underline;
+}
+
+/* Contact form (plain HTML, handled by Flask POST - no JavaScript) */
+.contact-form {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 340px;
+}
+
+.contact-form label {
+    font-size: 14px;
+    color: #4a4a4a;
+}
+
+.contact-form input {
+    font-family: inherit;
+    font-size: 14px;
+    padding: 8px 10px;
+    border: 1px solid #b7c4d1;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #333333;
+    width: 100%;
+}
+
+.contact-form input:focus {
+    outline: none;
+    border-color: #32638f;
+}
+
+.contact-form button {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    background: #32638f;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 18px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.15s ease;
+}
+
+.contact-form button:hover {
+    background: #1f4164;
+}
+
+/* Flash messages */
+.flash-messages {
+    margin-top: 10px;
+}
+
+.flash {
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    max-width: 340px;
+}
+
+.flash-success {
+    background: #e2efdd;
+    color: #3a6b35;
+}
+
+.flash-error {
+    background: #fbe4e4;
+    color: #a13c3c;
+}
+
+/* ---- Full-width footer ------------------------------------------------------ */
+
+.footer {
+    background: #1f4164;
+    width: 100%;
+}
+
+.footer-inner {
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 13px;
+}
+
+/* ---- Responsive breakpoints (CSS media queries only) ------------------------- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 52px 0 48px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 768px) {
+    .nav-inner {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .tagline {
+        font-size: 14px;
+    }
+
+    .section h2 {
+        min-width: 100%;
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-inner {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .brand {
+        font-size: 17px;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 40px 0 38px;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+    }
+
+    .tagline {
+        font-size: 13px;
+    }
+
+    .section h2 {
+        font-size: 19px;
+    }
+}

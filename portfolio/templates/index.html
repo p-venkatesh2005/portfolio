@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ name }} | Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Full-width navigation bar -->
+    <header>
+        <nav class="navbar">
+            <div class="container nav-inner">
+                <a href="#" class="brand">{{ name }}</a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Full-width hero section -->
+    <section class="hero">
+        <div class="container hero-inner">
+            <h1>Hi, I am {{ name }}</h1>
+            <p class="tagline">{{ tagline }}</p>
+        </div>
+    </section>
+
+    <!-- Responsive centered content container -->
+    <main class="container">
+
+        <!-- About -->
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p class="about-text">{{ about }}</p>
+        </section>
+
+        <!-- Skills -->
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <div class="badges">
+                {% for skill in skills %}
+                <span class="badge">{{ skill }}</span>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                {% for project in projects %}
+                <article class="card">
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description }}</p>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="section">
+            <h2>Contact</h2>
+            <p class="contact-text">Email: <a class="email-link" href="mailto:{{ email }}">{{ email }}</a></p>
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                    <p class="flash flash-{{ category }}">{{ message }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            {% endwith %}
+
+            <form class="contact-form" method="POST" action="/#contact">
+                <label for="email">Get in touch</label>
+                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                <button type="submit">Save my email</button>
+            </form>
+        </section>
+
+    </main>
+
+    <!-- Full-width footer -->
+    <footer class="footer">
+        <div class="container footer-inner">
+            &copy; {{ year }} {{ name }}
+        </div>
+    </footer>
+
+    <!-- SQLite connected: {{ contact_count }} contact record(s) found in database.db -->
+</body>
+</html>
